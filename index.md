@@ -2,6 +2,8 @@
 
 # Welcome to my first GitHub website!
 ## This page is currently under construction!!!!!!!
+
+
                         If you have any ideas about what I could do here, please let me know. 
 
 ### About me
@@ -12,7 +14,7 @@ I am relatively new to GitHub.
 
 
 
-                  ### Social Medias                              
+                  ### Social Media                              
 
                    My Twitter account: https://twitter.com/PftKai
 
@@ -20,4 +22,4 @@ I am relatively new to GitHub.
 
 
 
-###I just realize that this page is totally unnecessary
+### I just realize that this page is totally unnecessary
