@@ -5,6 +5,7 @@
 ### About me
 I live in Würzburg. 
 I am interested in Python programming. 
-I am relatively new to GitHub. That's why I don't know my way around yet. Sorry. 
+I am relatively new to GitHub.
+
 
 
