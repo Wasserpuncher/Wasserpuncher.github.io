@@ -3,7 +3,7 @@
 # If you have any ideas about what I could do here, please let me know. 
 
 ### About me
-I live in Würzburg. 
+I live in Würzburg (Germany). 
 I am interested in Python programming. 
 I am relatively new to GitHub.
 
