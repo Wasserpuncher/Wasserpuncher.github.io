@@ -10,6 +10,9 @@
 I live in Würzburg (Germany). 
 I am interested in Python programming. 
 I am relatively new to GitHub.
+I have also programmed a few things on a Raspberrypi. 
+So in the programming world I am not quite so inexperienced. 
+In terms of Java or so I have no idea. 
 
 
 
@@ -25,3 +28,6 @@ I am relatively new to GitHub.
     I just realize that this page is totally unnecessary
     But I do it because I am interested in websites and programming.
     As I said mainly Python but also HTML 
+
+
+Should I get an email address or something so you can write me for tips or something? 
