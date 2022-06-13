@@ -23,3 +23,4 @@ I am relatively new to GitHub.
 
 
 ### I just realize that this page is totally unnecessary
+# But I do it because I am interested in websites and programming. As I said mainly Python but also HTML 
