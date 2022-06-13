@@ -7,4 +7,5 @@ I live in Würzburg (Germany).
 I am interested in Python programming. 
 I am relatively new to GitHub.
 
-<img scr= "20220326_153139.jpg">
+
+<img src="https://www.google.de/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png">
