@@ -12,6 +12,11 @@ I am relatively new to GitHub.
 
 
 
-                               I just realize that this page is totally unnecessary
+                  ### Social Medias                              
 
                    My Twitter account: https://twitter.com/PftKai
+
+
+
+
+                         I just realize that this page is totally unnecessary
