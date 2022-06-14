@@ -4,8 +4,7 @@
 ## This page is currently under construction!!!!!!!
 
 
-                        If you have any ideas about what I could do here, please let me know. 
-
+                      
 ### About me
 I live in Würzburg (Germany). 
 I am interested in Python programming. 
@@ -31,6 +30,10 @@ In terms of Java or so I have no idea.
 
 
 Should I get an email address or something so you can write me for tips or something? 
+
+
+
+                If you have any ideas about what I could do here, please let me know. 
 
 
 
