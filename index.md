@@ -33,7 +33,7 @@ Should I get an email address or something so you can write me for tips or somet
 
 
 
-                If you have any ideas about what I could do here, please let me know. 
+              
 
 
 
