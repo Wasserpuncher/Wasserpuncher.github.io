@@ -31,3 +31,13 @@ In terms of Java or so I have no idea.
 
 
 Should I get an email address or something so you can write me for tips or something? 
+
+
+
+### News 
+
+
+
+
+
+
