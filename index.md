@@ -52,7 +52,9 @@ Source:
 </p>
 
 
-
+My other 2 GitHub websites: 
+1. https://wasserpuncher.github.io/Hackerpage.github.io
+2. https://wasserpuncher.github.io/German.News.Github.io
 
 
 
