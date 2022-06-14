@@ -39,8 +39,8 @@ Smartphones can be identified and tracked with Bluetooth signals
 Source:
 
 
-  <p>Ihr Browser kann leider keine eingebetteten Frames anzeigen:
-Sie können die eingebettete Seite über den folgenden Verweis aufrufen: 
+  <p> 
+  Unfortunately, your browser cannot display embedded frames: You can access the embedded page via the following link
 <a href="https://www.heise.de/news/Smartphones-koennen-mit-Bluetooth-Signalen-identifiziert-und-verfolgt-werden-7139849.html">SELFHTML</a>
 </p>
 
