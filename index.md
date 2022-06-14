@@ -37,8 +37,8 @@ Should I get an email address or something so you can write me for tips or somet
 ### News     
 Smartphones can be identified and tracked with Bluetooth signals 
 Source:
-https://www.heise.de/news/Smartphones-koennen-mit-Bluetooth-Signalen-identifiziert-und-verfolgt-werden-7139849.html
 
+](https://www.heise.de/news/Smartphones-koennen-mit-Bluetooth-Signalen-identifiziert-und-verfolgt-werden-7139849.html)
 
 
 
