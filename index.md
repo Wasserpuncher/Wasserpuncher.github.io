@@ -42,19 +42,13 @@ I try to get back to you as soon as possible
 
 
 ### News     
-Smartphones can be identified and tracked with Bluetooth signals 
-Source:
 
 
-  <p> 
-  Unfortunately, your browser cannot display embedded frames: You can access the embedded page via the following link
-<a href="https://www.heise.de/news/Smartphones-koennen-mit-Bluetooth-Signalen-identifiziert-und-verfolgt-werden-7139849.html">SELFHTML</a>
-</p>
+
+  
 
 
-My other 2 GitHub websites: 
-1. https://wasserpuncher.github.io/Hackerpage.github.io
-2. https://wasserpuncher.github.io/German.News.Github.io
+
 
 
 
