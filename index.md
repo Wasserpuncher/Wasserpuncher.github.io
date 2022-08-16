@@ -43,13 +43,9 @@ I try to get back to you as soon as possible
 
 ### HackerNews     
 
-<iframe
-   src="https://news.ycombinator.com"
-   width="900" 
-   height="400" 
-   name="SELFHTML_in_a_box">
 
-</iframe>
+
+##News
 
   
 
