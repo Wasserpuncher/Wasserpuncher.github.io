@@ -6,7 +6,7 @@
 
                       
 ### About me
-I live in Würzburg (Germany). 
+I live in Würzburg (Germany). <br>
 I am interested in Python programming. 
 I am relatively new to GitHub.
 I have also programmed a few things on a Raspberrypi. 
