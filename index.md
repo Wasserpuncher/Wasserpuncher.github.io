@@ -18,7 +18,7 @@ In terms of Java or so I have no idea.
 
                   ### Social Media                              
 
-                   My Twitter account: https://twitter.com/PftKai <br>
+                   My Twitter account: https://twitter.com/PftKai 
                     My Twitch: twitch.tv/wasserpuncher
 
 
