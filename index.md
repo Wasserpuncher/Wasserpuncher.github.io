@@ -32,7 +32,7 @@ In terms of Java or so I have no idea.
 
 
 ### Contact me: 
-# wasserpunchergithubio@gmail.com
+# You can tag me on twitter or who has my Whatsapp number can of course also write to me there. 
 I try to get back to you as soon as possible
 
 
