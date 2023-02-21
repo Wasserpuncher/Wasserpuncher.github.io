@@ -39,16 +39,10 @@ I try to get back to you as soon as possible
 
 
               
+  <title>My Github Page</title>
 
 
 
-### HackerNews     
-
-
-
-### News
-
-  
 
 
 
