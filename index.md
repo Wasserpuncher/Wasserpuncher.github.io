@@ -38,8 +38,31 @@ I try to get back to you as soon as possible
 
 
 
-              
+  
+  ChatGPT:
+  <!DOCTYPE html>
+<html>
+<head>
   <title>My Github Page</title>
+</head>
+<body>
+  <h1>Welcome to My Github Page</h1>
+  <p>This is an example webpage hosted on Github.</p>
+  <p>You can use Github Pages to host your own personal website or blog for free.</p>
+  
+  <h2>My Projects</h2>
+  <ul>
+    <li><a href="https://github.com/myusername/myproject1">My Project 1</a></li>
+    <li><a href="https://github.com/myusername/myproject2">My Project 2</a></li>
+    <li><a href="https://github.com/myusername/myproject3">My Project 3</a></li>
+  </ul>
+  
+  <h2>About Me</h2>
+  <p>My name is John Doe and I am a web developer.</p>
+  <p>You can find me on Github <a href="https://github.com/myusername">here</a>.</p>
+</body>
+</html>
+
 
 
 
