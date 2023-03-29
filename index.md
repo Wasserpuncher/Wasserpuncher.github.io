@@ -1,3 +1,15 @@
+Hallo Zusammen, 
+
+Hier ein Taschenrechner von ChatGPT geschrieben. 
+Auf dieser Webseite versuche ich mehrere Sachen von ChatGPT einzufügen.
+
+
+
+
+
+
+
+
 <html>
   <head>
     <title>Taschenrechner</title>
