@@ -4,7 +4,41 @@ Hallo Zusammen,
 Auf dieser Webseite versuche ich mehrere Sachen von ChatGPT einzufügen.
 
 
+Sehr gerne kannst du mir Python Programme hier hoch laden:
 
+
+
+<html>
+<head>
+	<title>Dateien hochladen und anzeigen</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<header>
+		<h1>Dateien hochladen und anzeigen</h1>
+	</header>
+	<main>
+		<section>
+			<h2>Datei hochladen</h2>
+			<form method="post" enctype="multipart/form-data">
+				<label for="file">Datei auswählen:</label>
+				<input type="file" id="file" name="file"><br><br>
+				<input type="submit" value="Hochladen">
+			</form>
+		</section>
+		<section>
+			<h2>Datei ansehen</h2>
+			<ul>
+				<!-- Hier werden die hochgeladenen Dateien angezeigt -->
+			</ul>
+		</section>
+	</main>
+	<footer>
+		<p>© 2023 - Dateien hochladen und anzeigen Webseite</p>
+	</footer>
+	<script src="script.js"></script>
+</body>
+</html>
 
 
 
