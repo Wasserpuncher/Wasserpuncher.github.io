@@ -225,27 +225,6 @@ main {
 </html>
 
 
-// Hier kann die Logik für das Hochladen und Anzeigen von Dateien implementiert werden
-// Zum Beispiel könnte man den Datei-Upload mit einem AJAX-Request an den Server schicken
-// und die hochgeladenen Dateien in der ul-Liste anzeigen
-
-// In diesem Beispiel werde ich eine Datei auswählen und sie mit einem <a>-Tag zum Download bereitstellen
-const fileInput = document.getElementById('file');
-const fileList = document.querySelector('ul');
-
-fileInput.addEventListener('change', function() {
-	const file = this.files[0];
-	const fileItem = document.createElement('li');
-	const fileLink = document.createElement('a');
-	fileLink.setAttribute('href', URL.createObjectURL(file));
-	fileLink.setAttribute('download', file.name);
-	fileLink.textContent = file.name;
-	fileItem.appendChild(fileLink);
-	fileList.appendChild(fileItem);
-});
-
-
-
 
 
 
