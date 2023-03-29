@@ -1,39 +1,10 @@
-Hello Together
-                      
-### About me
-I live in Würzburg (Germany). <br>
-I am interested in Python programming. 
-I am relatively new to GitHub.
-I have also programmed a few things on a Raspberrypi. 
-So in the programming world I am not quite so inexperienced. 
-In terms of Java or so I have no idea. 
-
-
-
-
-                   Social Media                              
-
-                   My Twitter account: https://twitter.com/PftKai 
-                   My Twitch: twitch.tv/wasserpuncher
-                   My Subreddit: https://www.reddit.com/r/Wasserpunchergithub
-                   Bio Link: https://bio.link/kai60tfa 
-
-
-
-
-
- 
-
-  
-
-
-
-
-
-
-  
-  
- <h1>Taschenrechner</h1>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Taschenrechner</title>
+  </head>
+  <body>
+    <h1>Taschenrechner</h1>
     <form>
       <label for="number1">Zahl 1:</label>
       <input type="number" id="number1" name="number1"><br><br>
@@ -76,16 +47,6 @@ In terms of Java or so I have no idea.
         var result = num1 / num2;
         document.getElementById("result").innerHTML = result;
       }
-    </script>  
-  
-  
-
-  
-
-
-
-
-
-
-
-
+    </script>
+  </body>
+</html>
