@@ -16,7 +16,7 @@ In terms of Java or so I have no idea.
 
 
 
-                  ### Social Media                              
+                   Social Media                              
 
                    My Twitter account: https://twitter.com/PftKai 
                     My Twitch: twitch.tv/wasserpuncher
