@@ -53,6 +53,39 @@
 
 
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Meine Webseite</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			background-color: #f2f2f2;
+			color: #333;
+		}
+    
+    	header {
+		background-color: #333;
+		color: #fff;
+		padding: 20px;
+		text-align: center;
+	}
+	
+	nav {
+		background-color: #444;
+		color: #fff;
+		padding: 10px;
+	}
+	
+	nav ul {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+		display: flex;
+		justify-content: space-between;
+	}
 
 
 
@@ -60,42 +93,6 @@
 
 
 
-
-
-
-<html>
-  <head>
-    <title>Internet Geschwindigkeit messen</title>
-  </head>
-  <body>
-    <h1>Internet Geschwindigkeit messen</h1>
-    <p>Klicken Sie auf den untenstehenden Button, um Ihre Internetgeschwindigkeit zu messen:</p>
-    <button onclick="measureSpeed()">Messen</button>
-    <p id="result"></p>
-
-    <script>
-      function measureSpeed() {
-        var startTime, endTime;
-        var fileSize = 5 * 1024 * 1024; // 5 MB
-        var download = new Image();
-        download.onload = function() {
-          endTime = (new Date()).getTime();
-          showResults(fileSize, startTime, endTime);
-        }
-
-        startTime = (new Date()).getTime();
-        var cacheBuster = "?nnn=" + startTime;
-        download.src = "https://example.com/speedtest/sample.jpg" + cacheBuster;
-      }
-
-      function showResults(fileSize, startTime, endTime) {
-        var duration = (endTime - startTime) / 1000;
-        var bitsLoaded = fileSize * 8;
-        var speedBps = bitsLoaded / duration;
-        var speedKbps = (speedBps / 1024).toFixed(2);
-        var speedMbps = (speedKbps / 1024).toFixed(2);
-
-        var resultElement = document.getElementById("result
 
 
 
