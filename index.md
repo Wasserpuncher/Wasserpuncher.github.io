@@ -4,61 +4,9 @@ Hallo Zusammen,
 Auf dieser Webseite versuche ich mehrere Sachen von ChatGPT einzufügen.
 
 
-Sehr gerne kannst du mir Python Programme hier hoch laden:
 
 
 
-<html>
-<head>
-	<title>Dateien hochladen und anzeigen</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-</head>
-<body>
-	<header>
-		<h1>Dateien hochladen und anzeigen</h1>
-	</header>
-	<main>
-		<section>
-			<h2>Datei hochladen</h2>
-			<form method="post" enctype="multipart/form-data">
-				<label for="file">Datei auswählen:</label>
-				<input type="file" id="file" name="file"><br><br>
-				<input type="submit" value="Hochladen">
-			</form>
-		</section>
-		<section>
-			<h2>Datei ansehen</h2>
-			<ul>
-				<!-- Hier werden die hochgeladenen Dateien angezeigt -->
-			</ul>
-		</section>
-	</main>
-	<footer>
-		<p>© 2023 - Dateien hochladen und anzeigen Webseite</p>
-	</footer>
-	<script src="script.js"></script>
-</body>
-</html>
-
-
-// Hier kann die Logik für das Hochladen und Anzeigen von Dateien implementiert werden
-// Zum Beispiel könnte man den Datei-Upload mit einem AJAX-Request an den Server schicken
-// und die hochgeladenen Dateien in der ul-Liste anzeigen
-
-// In diesem Beispiel werde ich eine Datei auswählen und sie mit einem <a>-Tag zum Download bereitstellen
-const fileInput = document.getElementById('file');
-const fileList = document.querySelector('ul');
-
-fileInput.addEventListener('change', function() {
-	const file = this.files[0];
-	const fileItem = document.createElement('li');
-	const fileLink = document.createElement('a');
-	fileLink.setAttribute('href', URL.createObjectURL(file));
-	fileLink.setAttribute('download', file.name);
-	fileLink.textContent = file.name;
-	fileItem.appendChild(fileLink);
-	fileList.appendChild(fileItem);
-});
 
 
 
@@ -238,6 +186,63 @@ main {
 
 
 
+		
+		
+		
+		
+		
+		
+<html>
+<head>
+	<title>Dateien hochladen und anzeigen</title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<header>
+		<h1>Dateien hochladen und anzeigen</h1>
+	</header>
+	<main>
+		<section>
+			<h2>Datei hochladen</h2>
+			<form method="post" enctype="multipart/form-data">
+				<label for="file">Datei auswählen:</label>
+				<input type="file" id="file" name="file"><br><br>
+				<input type="submit" value="Hochladen">
+			</form>
+		</section>
+		<section>
+			<h2>Datei ansehen</h2>
+			<ul>
+				<!-- Hier werden die hochgeladenen Dateien angezeigt -->
+			</ul>
+		</section>
+	</main>
+	<footer>
+		<p>© 2023 - Dateien hochladen und anzeigen Webseite</p>
+	</footer>
+	<script src="script.js"></script>
+</body>
+</html>
+
+
+// Hier kann die Logik für das Hochladen und Anzeigen von Dateien implementiert werden
+// Zum Beispiel könnte man den Datei-Upload mit einem AJAX-Request an den Server schicken
+// und die hochgeladenen Dateien in der ul-Liste anzeigen
+
+// In diesem Beispiel werde ich eine Datei auswählen und sie mit einem <a>-Tag zum Download bereitstellen
+const fileInput = document.getElementById('file');
+const fileList = document.querySelector('ul');
+
+fileInput.addEventListener('change', function() {
+	const file = this.files[0];
+	const fileItem = document.createElement('li');
+	const fileLink = document.createElement('a');
+	fileLink.setAttribute('href', URL.createObjectURL(file));
+	fileLink.setAttribute('download', file.name);
+	fileLink.textContent = file.name;
+	fileItem.appendChild(fileLink);
+	fileList.appendChild(fileItem);
+});
 
 
 
