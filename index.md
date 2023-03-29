@@ -19,22 +19,21 @@ In terms of Java or so I have no idea.
                    Social Media                              
 
                    My Twitter account: https://twitter.com/PftKai 
-                    My Twitch: twitch.tv/wasserpuncher
-                    My Subreddit: https://www.reddit.com/r/Wasserpunchergithub
+                   My Twitch: twitch.tv/wasserpuncher
+                   My Subreddit: https://www.reddit.com/r/Wasserpunchergithub
+                   Bio Link: https://bio.link/kai60tfa 
 
 
 
 
 
-    I just realize that this page is totally unnecessary
-    But I do it because I am interested in websites and programming.
-    As I said mainly Python but also HTML 
+ 
+
+  
 
 
 
 
-### Contact me: 
-You can tag me on twitter! I try to get back to you as soon as possible
 
 
   
