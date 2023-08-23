@@ -1,6 +1,6 @@
 <html>
 <head>
-    <title>Wasserpuncher live</title>
+    <title>Wasserpuncher's Twitch Stream</title>
     <link rel="icon" href="https://static.twitchcdn.net/assets/favicon-32-d6025c14e900565d6177.png" type="image/x-icon">
     <style>
         body {
