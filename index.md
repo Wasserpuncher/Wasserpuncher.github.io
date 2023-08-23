@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Mein Twitch Stream auch unter --> live.kaipfister.de erreichbar!!!</title>
+    <title>Wasserpuncher's Twitch Stream</title>
+    <link rel="icon" href="https://static.twitchcdn.net/assets/favicon-32-d6025c14e900565d6177.png" type="image/x-icon">
 </head>
 <body>
     <iframe
