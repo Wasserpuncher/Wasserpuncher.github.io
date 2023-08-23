@@ -1,7 +1,6 @@
-<!DOCTYPE html>
 <html>
 <head>
-    <title>Mein Twitch Stream</title>
+    <title>Wasserpuncher</title>
 </head>
 <body>
     <iframe
