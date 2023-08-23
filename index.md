@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <head>
     <title>Wasserpuncher</title>
@@ -14,8 +15,8 @@
         }
         iframe {
             border: 0;
-            width: 100%;
-            height: 100%;
+            width: 90vw;
+            height: 75vh;
         }
         .domains {
             margin-top: 20px;
