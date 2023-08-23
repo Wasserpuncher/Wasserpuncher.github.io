@@ -33,7 +33,7 @@
     </style>
 </head>
 <body>
-    <h1>Wasserpuncher's Portfolio</h1>
+    <h1>Wasserpuncher</h1>
     
     <h2>About Me</h2>
     <p>Hello! I'm Wasserpuncher, a passionate developer with a love for coding and problem-solving.</p>
