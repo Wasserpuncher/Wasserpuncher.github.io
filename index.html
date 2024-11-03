@@ -142,10 +142,44 @@
             from, to { border-color: transparent }
             50% { border-color: #ddd; }
         }
+        /* New Styles */
+        .matrix-rain {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+        .audio-visualizer {
+            width: 100%;
+            height: 100px;
+            background-color: #222;
+            margin-top: 20px;
+        }
+        .interactive-terminal {
+            background-color: #000;
+            color: #0f0;
+            padding: 10px;
+            font-family: 'Courier New', monospace;
+            margin-top: 20px;
+            height: 200px;
+            overflow-y: auto;
+        }
+        #terminal-input {
+            background-color: transparent;
+            border: none;
+            color: #0f0;
+            width: 100%;
+            font-family: inherit;
+            outline: none;
+        }
     </style>
 </head>
 <body>
     <canvas id="canvas"></canvas>
+    <canvas id="matrix-rain" class="matrix-rain"></canvas>
     <div class="container">
         <div class="glitch-container">
             <h1 class="glitch-text" data-text="Wasserpuncher">Wasserpuncher</h1>
@@ -166,6 +200,11 @@
                 <div class="cube-face top">Top</div>
                 <div class="cube-face bottom">Bottom</div>
             </div>
+        </div>
+        <div class="audio-visualizer" id="audio-visualizer"></div>
+        <div class="interactive-terminal">
+            <div id="terminal-output"></div>
+            <input type="text" id="terminal-input" placeholder="Type a command...">
         </div>
     </div>
     <script>
@@ -264,6 +303,117 @@
             const x = e.clientX / window.innerWidth;
             const y = e.clientY / window.innerHeight;
             cube.style.transform = `rotateY(${x * 360}deg) rotateX(${y * 360}deg)`;
+        });
+
+        // Matrix Rain Effect
+        const matrixCanvas = document.getElementById('matrix-rain');
+        const matrixCtx = matrixCanvas.getContext('2d');
+
+        matrixCanvas.width = window.innerWidth;
+        matrixCanvas.height = window.innerHeight;
+
+        const matrix = "ABCDEFGHIJKLMNOPQRSTUVWXYZ123456789@#$%^&*()*&^%";
+        const matrixChars = matrix.split("");
+
+        const fontSize = 10;
+        const columns = matrixCanvas.width / fontSize;
+
+        const drops = [];
+        for (let x = 0; x < columns; x++) {
+            drops[x] = 1;
+        }
+
+        function drawMatrix() {
+            matrixCtx.fillStyle = "rgba(0, 0, 0, 0.04)";
+            matrixCtx.fillRect(0, 0, matrixCanvas.width, matrixCanvas.height);
+
+            matrixCtx.fillStyle = "#0F0";
+            matrixCtx.font = fontSize + "px monospace";
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = matrixChars[Math.floor(Math.random() * matrixChars.length)];
+                matrixCtx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > matrixCanvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+
+                drops[i]++;
+            }
+        }
+
+        setInterval(drawMatrix, 33);
+
+        // Audio Visualizer
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
+        const analyser = audioContext.createAnalyser();
+        const visualizer = document.getElementById('audio-visualizer');
+        const visualizerCtx = visualizer.getContext('2d');
+
+        navigator.mediaDevices.getUserMedia({ audio: true })
+            .then(stream => {
+                const source = audioContext.createMediaStreamSource(stream);
+                source.connect(analyser);
+                visualizeAudio();
+            })
+            .catch(err => console.log('The following gUM error occurred: ' + err));
+
+        function visualizeAudio() {
+            analyser.fftSize = 2048;
+            const bufferLength = analyser.frequencyBinCount;
+            const dataArray = new Uint8Array(bufferLength);
+
+            visualizer.width = visualizer.clientWidth;
+            visualizer.height = visualizer.clientHeight;
+
+            function draw() {
+                requestAnimationFrame(draw);
+
+                analyser.getByteFrequencyData(dataArray);
+
+                visualizerCtx.fillStyle = 'rgb(0, 0, 0)';
+                visualizerCtx.fillRect(0, 0, visualizer.width, visualizer.height);
+
+                const barWidth = (visualizer.width / bufferLength) * 2.5;
+                let barHeight;
+                let x = 0;
+
+                for(let i = 0; i < bufferLength; i++) {
+                    barHeight = dataArray[i] / 2;
+
+                    visualizerCtx.fillStyle = 'rgb(' + (barHeight+100) + ',50,50)';
+                    visualizerCtx.fillRect(x, visualizer.height-barHeight/2, barWidth, barHeight);
+
+                    x += barWidth + 1;
+                }
+            };
+
+            draw();
+        }
+
+        // Interactive Terminal
+        const terminalOutput = document.getElementById('terminal-output');
+        const terminalInput =   document.getElementById('terminal-input');
+
+        const commands = {
+            help: 'Available commands: help, about, skills, projects, contact',
+            about: 'I am Wasserpuncher, a passionate developer and tech enthusiast.',
+            skills: 'My skills include: HTML, CSS, JavaScript, Python, and more.',
+            projects: 'Check out my GitHub for a list of my projects.',
+            contact: 'You can reach me via email at: wasserpuncher@example.com'
+        };
+
+        terminalInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                const command = this.value.toLowerCase().trim();
+                let response = commands[command] || `Command not found: ${command}`;
+                
+                terminalOutput.innerHTML += `<div>> ${command}</div>`;
+                terminalOutput.innerHTML += `<div>${response}</div>`;
+                
+                this.value = '';
+                terminalOutput.scrollTop = terminalOutput.scrollHeight;
+            }
         });
     </script>
 </body>
