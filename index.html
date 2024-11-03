@@ -1,46 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Code Universe by Wasserpuncher</title>
+    <title>Wasserpuncher - Unique Coding Experiences</title>
 
     <!-- SEO Meta Tags -->
-    <meta name="description" content="Explore the digital realm of Wasserpuncher: Innovative projects, creative coding, and technological progress.">
-    <meta name="keywords" content="Coding, Programming, Technology, GitHub, Projects, Dark Mode, Wasserpuncher">
+    <meta name="description" content="Dive into the universe of Wasserpuncher: innovative projects, unique coding adventures, and tech breakthroughs.">
+    <meta name="keywords" content="Wasserpuncher, GitHub, Twitch, coding, programming, technology, projects">
     <meta name="robots" content="index, follow">
-    
+
     <!-- Open Graph Meta Tags for Social Media -->
-    <meta property="og:title" content="Code Universe by Wasserpuncher">
-    <meta property="og:description" content="Discover the exciting world of Wasserpuncher with dark mode, innovative projects, and creative code.">
+    <meta property="og:title" content="Wasserpuncher - Unique Coding Experiences">
+    <meta property="og:description" content="Join Wasserpuncher's world of creativity and code with unique experiences and insights into cutting-edge technology.">
     <meta property="og:image" content="images/og-image.jpg">
     <meta property="og:url" content="https://wasserpuncher.github.io">
     <meta property="og:type" content="website">
-    
+
     <!-- CSS Styling and Dark Mode Setup -->
     <style>
-        /* Color Variables and Dark Mode */
         :root {
-            --bg-light: #f5f5f5;
+            --bg-light: #f0f0f0;
             --text-light: #333;
-            --bg-dark: #1a1a1a;
-            --text-dark: #e2e2e2;
+            --bg-dark: #222;
+            --text-dark: #ddd;
             --accent-color: #00ffd1;
-            --secondary-color: #ff00e1;
+            --secondary-color: #ff00c1;
         }
 
-        /* Transition for Dark Mode Toggle */
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: var(--bg-light);
-            color: var(--text-light);
-            transition: all 0.3s;
+            transition: background-color 0.3s, color 0.3s;
         }
 
-        /* Dark Mode */
+        /* Light and Dark Mode */
+        body.light-mode {
+            background-color: var(--bg-light);
+            color: var(--text-light);
+        }
+
         body.dark-mode {
             background-color: var(--bg-dark);
             color: var(--text-dark);
@@ -54,78 +55,118 @@
             text-align: center;
         }
 
-        /* Logo */
-        .header-logo {
+        /* Glitch Animation for Logo */
+        .glitch-container {
+            position: relative;
             font-size: 3em;
             font-weight: bold;
-            color: var(--accent-color);
+            text-align: center;
+            text-transform: uppercase;
+            overflow: hidden;
+        }
+        .glitch-text {
             position: relative;
-            animation: glow 1.5s infinite alternate;
+            display: inline-block;
+        }
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -2px 0 var(--secondary-color);
+            animation: glitch-anim 2.5s infinite linear alternate-reverse;
+        }
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -2px 0 var(--accent-color);
+            animation: glitch-anim2 2.5s infinite linear alternate-reverse;
         }
 
-        /* Glowing Effect */
-        @keyframes glow {
-            0% { text-shadow: 0 0 5px #00ffd1, 0 0 10px #ff00e1, 0 0 20px #ff00e1; }
-            100% { text-shadow: 0 0 20px #00ffd1, 0 0 30px #ff00e1, 0 0 40px #ff00e1; }
+        /* Glitch Animations */
+        @keyframes glitch-anim {
+            0% { clip: rect(25px, 9999px, 50px, 0); }
+            50% { clip: rect(45px, 9999px, 30px, 0); }
+            100% { clip: rect(65px, 9999px, 15px, 0); }
+        }
+        @keyframes glitch-anim2 {
+            0% { clip: rect(65px, 9999px, 100px, 0); }
+            50% { clip: rect(85px, 9999px, 35px, 0); }
+            100% { clip: rect(95px, 9999px, 25px, 0); }
         }
 
-        /* Toggle Button */
+        /* Toggle Button for Dark Mode */
         #toggle-mode {
-            padding: 10px 20px;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
             cursor: pointer;
             border: none;
             border-radius: 5px;
             background-color: var(--accent-color);
             color: #fff;
-            margin-top: 20px;
             transition: background-color 0.3s;
         }
-
         #toggle-mode:hover {
             background-color: var(--secondary-color);
         }
 
-        /* Link Styling */
+        /* Interactive Links */
         .links {
             display: flex;
             justify-content: center;
-            margin-top: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
         }
-
         .links a {
             color: inherit;
             text-decoration: none;
-            padding: 10px 15px;
-            margin: 0 10px;
+            padding: 10px 20px;
+            margin: 10px;
             border: 2px solid currentColor;
             border-radius: 5px;
-            transition: background-color 0.3s, color 0.3s;
+            transition: all 0.3s;
         }
-
         .links a:hover {
             background-color: currentColor;
             color: var(--bg-dark);
         }
 
+        /* Particle Background */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
         /* Responsive Layout */
         @media (max-width: 600px) {
-            .header-logo {
+            .glitch-container {
                 font-size: 2em;
+            }
+            #toggle-mode {
+                padding: 8px;
             }
         }
     </style>
 </head>
-
-<body>
-    <!-- Dark Mode Toggle -->
-    <button id="toggle-mode">Dark Mode</button>
-
-    <!-- Content Container -->
+<body class="light-mode">
+    <div id="particles-js"></div>
     <div class="container">
-        <div class="header-logo">Wasserpuncher</div>
-        <p>Welcome to the digital universe of Wasserpuncher! Dive into projects, code experiences, and tech innovations that inspire.</p>
-
-        <!-- Interactive Links to Projects and Profiles -->
+        <button id="toggle-mode">Toggle Mode</button>
+        <div class="glitch-container">
+            <h1 class="glitch-text" data-text="Wasserpuncher">Wasserpuncher</h1>
+        </div>
+        <p>Welcome to my digital universe! Here, creativity and code merge into unique experiences.</p>
         <div class="links">
             <a href="https://github.com/Wasserpuncher" target="_blank">GitHub</a>
             <a href="https://www.twitch.tv/wasserpuncher" target="_blank">Twitch</a>
@@ -134,21 +175,42 @@
         </div>
     </div>
 
-    <!-- Dark Mode Toggle Script -->
+    <!-- Particles.js Background -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         const toggleButton = document.getElementById('toggle-mode');
         const body = document.body;
 
+        // Dark Mode Toggle with Local Storage
         toggleButton.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
             body.classList.toggle('dark-mode');
-            localStorage.setItem('dark-mode', body.classList.contains('dark-mode'));
+            localStorage.setItem('mode', body.classList.contains('dark-mode') ? 'dark' : 'light');
         });
 
-        // Maintain Dark Mode setting for future visits
-        if (localStorage.getItem('dark-mode') === 'true') {
+        // Load Last Saved Mode
+        if (localStorage.getItem('mode') === 'dark') {
+            body.classList.remove('light-mode');
             body.classList.add('dark-mode');
         }
+
+        // Particle Effect
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#ffffff" },
+                shape: { type: "circle", stroke: { width: 0 }, polygon: { nb_sides: 5 } },
+                opacity: { value: 0.5, random: false },
+                size: { value: 3, random: true },
+                line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 6 }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } }
+            },
+            retina_detect: true
+        });
     </script>
 </body>
-
 </html>
