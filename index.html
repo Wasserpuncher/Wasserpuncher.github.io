@@ -1,145 +1,105 @@
 <!DOCTYPE html>
-<html lang="de">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wasserpuncher - Einzigartige Coding-Erlebnisse</title>
-    <meta name="description" content="Entdecken Sie die Welt von Wasserpuncher: Innovative Projekte, Coding-Abenteuer und technologische Durchbrüche.">
-    <meta name="keywords" content="Wasserpuncher, GitHub, Twitch, Coding, Programmierung, Technologie">
+    <title>Code Universe by Wasserpuncher</title>
+
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Explore the digital realm of Wasserpuncher: Innovative projects, creative coding, and technological progress.">
+    <meta name="keywords" content="Coding, Programming, Technology, GitHub, Projects, Dark Mode, Wasserpuncher">
     <meta name="robots" content="index, follow">
-    <meta property="og:title" content="Wasserpuncher - Einzigartige Coding-Erlebnisse">
-    <meta property="og:description" content="Entdecken Sie die Welt von Wasserpuncher: Innovative Projekte, Coding-Abenteuer und technologische Durchbrüche.">
+    
+    <!-- Open Graph Meta Tags for Social Media -->
+    <meta property="og:title" content="Code Universe by Wasserpuncher">
+    <meta property="og:description" content="Discover the exciting world of Wasserpuncher with dark mode, innovative projects, and creative code.">
+    <meta property="og:image" content="images/og-image.jpg">
     <meta property="og:url" content="https://wasserpuncher.github.io">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="images/og-image.jpg">
+    
+    <!-- CSS Styling and Dark Mode Setup -->
     <style>
-        /* Dark und Light Mode Farben */
+        /* Color Variables and Dark Mode */
         :root {
-            --bg-light: #f0f0f0;
+            --bg-light: #f5f5f5;
             --text-light: #333;
-            --bg-dark: #222;
-            --text-dark: #ddd;
-            --primary-color: #00fff9;
-            --secondary-color: #ff00c1;
+            --bg-dark: #1a1a1a;
+            --text-dark: #e2e2e2;
+            --accent-color: #00ffd1;
+            --secondary-color: #ff00e1;
         }
 
-        /* Grundlegendes Layout und Transition-Effekte */
+        /* Transition for Dark Mode Toggle */
         body {
-            font-family: 'Courier New', monospace;
-            line-height: 1.6;
+            font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            transition: background-color 0.3s, color 0.3s;
-        }
-
-        /* Light und Dark Mode Anpassungen */
-        body.light-mode {
             background-color: var(--bg-light);
             color: var(--text-light);
+            transition: all 0.3s;
         }
 
+        /* Dark Mode */
         body.dark-mode {
             background-color: var(--bg-dark);
             color: var(--text-dark);
         }
 
+        /* Container Styling */
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
-        }
-
-        /* Zentrale Überschriften-Styling */
-        h1,
-        h2 {
             text-align: center;
         }
 
+        /* Logo */
+        .header-logo {
+            font-size: 3em;
+            font-weight: bold;
+            color: var(--accent-color);
+            position: relative;
+            animation: glow 1.5s infinite alternate;
+        }
+
+        /* Glowing Effect */
+        @keyframes glow {
+            0% { text-shadow: 0 0 5px #00ffd1, 0 0 10px #ff00e1, 0 0 20px #ff00e1; }
+            100% { text-shadow: 0 0 20px #00ffd1, 0 0 30px #ff00e1, 0 0 40px #ff00e1; }
+        }
+
+        /* Toggle Button */
         #toggle-mode {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px;
+            padding: 10px 20px;
             cursor: pointer;
-            background-color: var(--primary-color);
             border: none;
             border-radius: 5px;
-            color: #222;
-            transition: background-color 0.3s, color 0.3s;
+            background-color: var(--accent-color);
+            color: #fff;
+            margin-top: 20px;
+            transition: background-color 0.3s;
         }
 
         #toggle-mode:hover {
             background-color: var(--secondary-color);
         }
 
-        /* Glitch Effekt für Logo */
-        .glitch-container {
-            position: relative;
-            font-size: 3em;
-            font-weight: bold;
-            text-align: center;
-            text-transform: uppercase;
-            overflow: hidden;
-        }
-
-        .glitch-text {
-            position: relative;
-            display: inline-block;
-            color: var(--primary-color);
-        }
-
-        .glitch-text::before,
-        .glitch-text::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Glitch Effekt Farben */
-        .glitch-text::before {
-            left: 2px;
-            text-shadow: -2px 0 var(--secondary-color);
-            clip: rect(44px, 450px, 56px, 0);
-            animation: glitch-anim 5s infinite linear alternate-reverse;
-        }
-
-        .glitch-text::after {
-            left: -2px;
-            text-shadow: -2px 0 var(--primary-color), 2px 2px var(--secondary-color);
-            clip: rect(44px, 450px, 56px, 0);
-            animation: glitch-anim2 5s infinite linear alternate-reverse;
-        }
-
-        /* Animationskeyframes für Glitch */
-        @keyframes glitch-anim {
-            0% { clip: rect(31px, 9999px, 94px, 0); }
-            100% { clip: rect(39px, 9999px, 15px, 0); }
-        }
-
-        @keyframes glitch-anim2 {
-            0% { clip: rect(65px, 9999px, 100px, 0); }
-            100% { clip: rect(4px, 9999px, 35px, 0); }
-        }
-
-        /* Interaktive Links mit Hover-Effekten */
+        /* Link Styling */
         .links {
             display: flex;
-            justify-content: space-around;
-            flex-wrap: wrap;
-            margin-top: 30px;
+            justify-content: center;
+            margin-top: 20px;
         }
 
         .links a {
             color: inherit;
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 10px 15px;
+            margin: 0 10px;
             border: 2px solid currentColor;
             border-radius: 5px;
-            transition: all 0.3s;
+            transition: background-color 0.3s, color 0.3s;
         }
 
         .links a:hover {
@@ -147,32 +107,25 @@
             color: var(--bg-dark);
         }
 
-        /* Particle Hintergrund */
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: -1;
+        /* Responsive Layout */
+        @media (max-width: 600px) {
+            .header-logo {
+                font-size: 2em;
+            }
         }
     </style>
 </head>
 
-<body class="light-mode">
-    <!-- Particle Effekt für Hintergrund -->
-    <div id="particles-js"></div>
-    <div class="container">
-        <button id="toggle-mode">Modus wechseln</button>
-        
-        <!-- Logo mit Glitch Effekt -->
-        <div class="glitch-container">
-            <h1 class="glitch-text" data-text="Wasserpuncher">Wasserpuncher</h1>
-        </div>
+<body>
+    <!-- Dark Mode Toggle -->
+    <button id="toggle-mode">Dark Mode</button>
 
-        <p>Willkommen in meiner digitalen Welt! Hier verschmelzen Kreativität und Code zu einzigartigen Erlebnissen.</p>
-        
-        <!-- Links zu sozialen und professionellen Profilen -->
+    <!-- Content Container -->
+    <div class="container">
+        <div class="header-logo">Wasserpuncher</div>
+        <p>Welcome to the digital universe of Wasserpuncher! Dive into projects, code experiences, and tech innovations that inspire.</p>
+
+        <!-- Interactive Links to Projects and Profiles -->
         <div class="links">
             <a href="https://github.com/Wasserpuncher" target="_blank">GitHub</a>
             <a href="https://www.twitch.tv/wasserpuncher" target="_blank">Twitch</a>
@@ -181,36 +134,20 @@
         </div>
     </div>
 
-    <!-- Particle.js Skript und Toggle für Dark Mode -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Dark Mode Toggle Script -->
     <script>
         const toggleButton = document.getElementById('toggle-mode');
         const body = document.body;
 
-        // Event Listener für Modus-Wechsel
         toggleButton.addEventListener('click', () => {
-            body.classList.toggle('light-mode');
             body.classList.toggle('dark-mode');
+            localStorage.setItem('dark-mode', body.classList.contains('dark-mode'));
         });
 
-        // Particle.js Konfiguration
-        particlesJS("particles-js", {
-            particles: {
-                number: { value: 100, density: { enable: true, value_area: 800 } },
-                color: { value: ["#ffffff", "#00fff9", "#ff00c1"] },
-                shape: { type: "circle", stroke: { width: 0 }, polygon: { nb_sides: 5 } },
-                opacity: { value: 0.7, random: true, anim: { enable: true, speed: 1, opacity_min: 0.1, sync: false } },
-                size: { value: 3, random: true, anim: { enable: true, speed: 3, size_min: 0.1, sync: false } },
-                line_linked: { enable: true, distance: 120, color: "#ffffff", opacity: 0.4, width: 1 },
-                move: { enable: true, speed: 4, random: true, out_mode: "out" }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
-                modes: { repulse: { distance: 150, duration: 0.4 }, push: { particles_nb: 4 } }
-            },
-            retina_detect: true
-        });
+        // Maintain Dark Mode setting for future visits
+        if (localStorage.getItem('dark-mode') === 'true') {
+            body.classList.add('dark-mode');
+        }
     </script>
 </body>
 
