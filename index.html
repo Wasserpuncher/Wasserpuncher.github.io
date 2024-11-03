@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wasserpuncher - Unique Coding Experiences</title>
-    <meta name="description" content="Explore the world of Wasserpuncher: Innovative projects, coding adventures, and technological breakthroughs.">
-    <meta name="keywords" content="Wasserpuncher, GitHub, Twitch, Coding, Programming, Technology">
+    <title>Wasserpuncher - Innovative Coding Experiences</title>
+    <meta name="description" content="Dive into Wasserpuncher's world of cutting-edge coding projects, interactive experiences, and technological innovations. Explore unique digital creations.">
+    <meta name="keywords" content="Wasserpuncher, GitHub, Twitch, Coding, Programming, Technology, Innovation, Interactive Experiences">
     <meta name="author" content="Kai Pfister">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
@@ -15,7 +15,7 @@
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            background-color: #222;
+            background-color: #111;
             color: #ddd;
             overflow-x: hidden;
         }
@@ -43,7 +43,7 @@
         }
         .links a:hover {
             background-color: currentColor;
-            color: #222;
+            color: #111;
         }
         /* Canvas styles */
         #canvas {
@@ -54,6 +54,94 @@
             height: 100%;
             z-index: -1;
         }
+        /* Glitch effect */
+        .glitch-container {
+            position: relative;
+            overflow: hidden;
+        }
+        .glitch-text {
+            position: relative;
+            display: inline-block;
+            font-size: 3em;
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #fff;
+            text-shadow: 2px 2px #ff00de, -2px -2px #00ff9d;
+            animation: glitch 1s infinite;
+        }
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
+            }
+            20% {
+                transform: translate(-5px, 5px);
+            }
+            40% {
+                transform: translate(-5px, -5px);
+            }
+            60% {
+                transform: translate(5px, 5px);
+            }
+            80% {
+                transform: translate(5px, -5px);
+            }
+            100% {
+                transform: translate(0);
+            }
+        }
+        /* Interactive cube */
+        .cube-container {
+            perspective: 1000px;
+            width: 200px;
+            height: 200px;
+            margin: 50px auto;
+        }
+        .cube {
+            width: 100%;
+            height: 100%;
+            position: relative;
+            transform-style: preserve-3d;
+            animation: rotate 20s infinite linear;
+        }
+        .cube-face {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border: 2px solid #fff;
+            opacity: 0.7;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .front  { transform: rotateY(0deg) translateZ(100px); }
+        .right  { transform: rotateY(90deg) translateZ(100px); }
+        .back   { transform: rotateY(180deg) translateZ(100px); }
+        .left   { transform: rotateY(-90deg) translateZ(100px); }
+        .top    { transform: rotateX(90deg) translateZ(100px); }
+        .bottom { transform: rotateX(-90deg) translateZ(100px); }
+        @keyframes rotate {
+            from { transform: rotateX(0deg) rotateY(0deg); }
+            to { transform: rotateX(360deg) rotateY(360deg); }
+        }
+        /* Typewriter effect */
+        .typewriter {
+            overflow: hidden;
+            border-right: .15em solid #ddd;
+            white-space: nowrap;
+            margin: 0 auto;
+            letter-spacing: .15em;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #ddd; }
+        }
     </style>
 </head>
 <body>
@@ -62,12 +150,22 @@
         <div class="glitch-container">
             <h1 class="glitch-text" data-text="Wasserpuncher">Wasserpuncher</h1>
         </div>
-        <p>Welcome to my digital world! Here, creativity and code merge into unique experiences.</p>
+        <p class="typewriter">Welcome to my digital realm, where code and creativity collide!</p>
         <div class="links">
-            <a href="https://github.com/Wasserpuncher" target="_blank">GitHub</a>
-            <a href="https://www.twitch.tv/wasserpuncher" target="_blank">Twitch</a>
-            <a href="https://bio.link/wasserpuncher" target="_blank">Bio Link</a>
-            <a href="https://wasserpuncher.wordpress.com" target="_blank">Blog</a>
+            <a href="https://github.com/Wasserpuncher" target="_blank" rel="noopener noreferrer">GitHub</a>
+            <a href="https://www.twitch.tv/wasserpuncher" target="_blank" rel="noopener noreferrer">Twitch</a>
+            <a href="https://bio.link/wasserpuncher" target="_blank" rel="noopener noreferrer">Bio Link</a>
+            <a href="https://wasserpuncher.wordpress.com" target="_blank" rel="noopener noreferrer">Blog</a>
+        </div>
+        <div class="cube-container">
+            <div class="cube">
+                <div class="cube-face front">Front</div>
+                <div class="cube-face back">Back</div>
+                <div class="cube-face right">Right</div>
+                <div class="cube-face left">Left</div>
+                <div class="cube-face top">Top</div>
+                <div class="cube-face bottom">Bottom</div>
+            </div>
         </div>
     </div>
     <script>
@@ -92,8 +190,7 @@
             this.x += this.speedX;
             this.y += this.speedY;
 
-            // Bounce off edges
-            if (this.size < 0.1) this.size = 0;
+            if (this.size > 0.2) this.size -= 0.1;
             if (this.x <= 0 || this.x >= canvas.width) this.speedX *= -1;
             if (this.y <= 0 || this.y >= canvas.height) this.speedY *= -1;
         }
@@ -114,9 +211,13 @@
 
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            particles.forEach(particle => {
+            particles.forEach((particle, index) => {
                 particle.update();
                 particle.draw();
+                if (particle.size <= 0.2) {
+                    particles.splice(index, 1);
+                    particles.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height));
+                }
             });
             requestAnimationFrame(animate);
         }
@@ -130,6 +231,39 @@
             if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
                 event.preventDefault();
             }
+        });
+
+        // Disable view-source
+        document.onkeydown = function(e) {
+            if (e.ctrlKey && 
+                (e.keyCode === 67 || 
+                 e.keyCode === 86 || 
+                 e.keyCode === 85 || 
+                 e.keyCode === 117)) {
+                return false;
+            } else {
+                return true;
+            }
+        };
+
+        // Disable text selection
+        document.onselectstart = function() {
+            return false;
+        }
+
+        // Responsive canvas
+        window.addEventListener('resize', () => {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            init();
+        });
+
+        // Interactive cube rotation
+        const cube = document.querySelector('.cube');
+        document.addEventListener('mousemove', (e) => {
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            cube.style.transform = `rotateY(${x * 360}deg) rotateX(${y * 360}deg)`;
         });
     </script>
 </body>
