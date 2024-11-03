@@ -3,13 +3,203 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Eine minimalistische Webseite im Darkmode.">
-    <meta name="keywords" content="Webseite, minimalistisch, Darkmode, SEO">
-    <meta name="author" content="Wasserpuncher">
-    <link rel="stylesheet" href="styles.css">
-    <title>Wasserpuncher</title>
+    <title>Wasserpuncher - Einzigartige Coding-Erlebnisse</title>
+    <meta name="description" content="Entdecken Sie die Welt von Wasserpuncher: Innovative Projekte, Coding-Abenteuer und technologische Durchbrüche.">
+    <meta name="keywords" content="Wasserpuncher, GitHub, Twitch, Coding, Programmierung, Technologie">
+    <style>
+        :root {
+            --bg-light: #f0f0f0;
+            --text-light: #333;
+            --bg-dark: #222;
+            --text-dark: #ddd;
+        }
+        body {
+            font-family: 'Courier New', monospace;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            transition: background-color 0.3s, color 0.3s;
+        }
+        body.light-mode {
+            background-color: var(--bg-light);
+            color: var(--text-light);
+        }
+        body.dark-mode {
+            background-color: var(--bg-dark);
+            color: var(--text-dark);
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1, h2 {
+            text-align: center;
+        }
+        #toggle-mode {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .glitch-container {
+            position: relative;
+            font-size: 3em;
+            font-weight: bold;
+            text-align: center;
+            text-transform: uppercase;
+            overflow: hidden;
+        }
+        .glitch-text {
+            position: relative;
+            display: inline-block;
+        }
+        .glitch-text::before,
+        .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -2px 0 #ff00c1;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -2px 0 #00fff9, 2px 2px #ff00c1;
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim2 5s infinite linear alternate-reverse;
+        }
+        @keyframes glitch-anim {
+            0% { clip: rect(31px, 9999px, 94px, 0); }
+            4.16666667% { clip: rect(91px, 9999px, 43px, 0); }
+            8.33333333% { clip: rect(15px, 9999px, 13px, 0); }
+            12.5% { clip: rect(69px, 9999px, 57px, 0); }
+            16.66666667% { clip: rect(26px, 9999px, 48px, 0); }
+            20.83333333% { clip: rect(45px, 9999px, 46px, 0); }
+            25% { clip: rect(64px, 9999px, 14px, 0); }
+            29.16666667% { clip: rect(23px, 9999px, 59px, 0); }
+            33.33333333% { clip: rect(16px, 9999px, 24px, 0); }
+            37.5% { clip: rect(86px, 9999px, 73px, 0); }
+            41.66666667% { clip: rect(76px, 9999px, 32px, 0); }
+            45.83333333% { clip: rect(84px, 9999px, 90px, 0); }
+            50% { clip: rect(36px, 9999px, 26px, 0); }
+            54.16666667% { clip: rect(67px, 9999px, 92px, 0); }
+            58.33333333% { clip: rect(43px, 9999px, 70px, 0); }
+            62.5% { clip: rect(37px, 9999px, 81px, 0); }
+            66.66666667% { clip: rect(93px, 9999px, 3px, 0); }
+            70.83333333% { clip: rect(18px, 9999px, 17px, 0); }
+            75% { clip: rect(42px, 9999px, 78px, 0); }
+            79.16666667% { clip: rect(51px, 9999px, 33px, 0); }
+            83.33333333% { clip: rect(47px, 9999px, 30px, 0); }
+            87.5% { clip: rect(64px, 9999px, 2px, 0); }
+            91.66666667% { clip: rect(87px, 9999px, 68px, 0); }
+            95.83333333% { clip: rect(24px, 9999px, 95px, 0); }
+            100% { clip: rect(39px, 9999px, 15px, 0); }
+        }
+        @keyframes glitch-anim2 {
+            0% { clip: rect(65px, 9999px, 100px, 0); }
+            4.16666667% { clip: rect(52px, 9999px, 74px, 0); }
+            8.33333333% { clip: rect(79px, 9999px, 85px, 0); }
+            12.5% { clip: rect(75px, 9999px, 5px, 0); }
+            16.66666667% { clip: rect(90px, 9999px, 61px, 0); }
+            20.83333333% { clip: rect(3px, 9999px, 57px, 0); }
+            25% { clip: rect(100px, 9999px, 99px, 0); }
+            29.16666667% { clip: rect(48px, 9999px, 44px, 0); }
+            33.33333333% { clip: rect(43px, 9999px, 40px, 0); }
+            37.5% { clip: rect(50px, 9999px, 36px, 0); }
+            41.66666667% { clip: rect(59px, 9999px, 98px, 0); }
+            45.83333333% { clip: rect(26px, 9999px, 63px, 0); }
+            50% { clip: rect(45px, 9999px, 46px, 0); }
+            54.16666667% { clip: rect(82px, 9999px, 31px, 0); }
+            58.33333333% { clip: rect(17px, 9999px, 95px, 0); }
+            62.5% { clip: rect(37px, 9999px, 20px, 0); }
+            66.66666667% { clip: rect(71px, 9999px, 87px, 0); }
+            70.83333333% { clip: rect(28px, 9999px, 93px, 0); }
+            75% { clip: rect(54px, 9999px, 70px, 0); }
+            79.16666667% { clip: rect(45px, 9999px, 6px, 0); }
+            83.33333333% { clip: rect(86px, 9999px, 92px, 0); }
+            87.5% { clip: rect(9px, 9999px, 87px, 0); }
+            91.66666667% { clip: rect(82px, 9999px, 89px, 0); }
+            95.83333333% { clip: rect(40px, 9999px, 88px, 0); }
+            100% { clip: rect(4px, 9999px, 35px, 0); }
+        }
+        .links {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+        .links a {
+            color: inherit;
+            text-decoration: none;
+            padding: 10px 20px;
+            border: 2px solid currentColor;
+            border-radius: 5px;
+            transition: all 0.3s;
+        }
+        .links a:hover {
+            background-color: currentColor;
+            color: var(--bg-dark);
+        }
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+    </style>
 </head>
-<body>
-    <!-- Diese Seite ist komplett leer -->
+<body class="light-mode">
+    <div id="particles-js"></div>
+    <div class="container">
+        <button id="toggle-mode">Modus wechseln</button>
+        <div class="glitch-container">
+            <h1 class="glitch-text" data-text="Wasserpuncher">Wasserpuncher</h1>
+        </div>
+        <p>Willkommen in meiner digitalen Welt! Hier verschmelzen Kreativität und Code zu einzigartigen Erlebnissen.</p>
+        <div class="links">
+            <a href="https://github.com/Wasserpuncher" target="_blank">GitHub</a>
+            <a href="https://www.twitch.tv/wasserpuncher" target="_blank">Twitch</a>
+            <a href="https://bio.link/wasserpuncher" target="_blank">Bio Link</a>
+            <a href="https://wasserpuncher.wordpress.com" target="_blank">Blog</a>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        const toggleButton = document.getElementById('toggle-mode');
+        const body = document.body;
+
+        toggleButton.addEventListener('click', () => {
+            body.classList.toggle('light-mode');
+            body.classList.toggle('dark-mode');
+        });
+
+        particlesJS("particles-js", {
+            particles: {
+                number: { value: 80, density: { enable: true, value_area: 800 } },
+                color: { value: "#ffffff" },
+                shape: { type: "circle", stroke: { width: 0, color: "#000000" }, polygon: { nb_sides: 5 }, image: { src: "img/github.svg", width: 100, height: 100 } },
+                opacity: { value: 0.5, random: false, anim: { enable: false, speed: 1, opacity_min: 0.1, sync: false } },
+                size: { value: 3, random: true, anim: { enable: false, speed: 40, size_min: 0.1, sync: false } },
+                line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
+                move: { enable: true, speed: 6, direction: "none", random: false, straight: false, out_mode: "out", bounce: false, attract: { enable: false, rotateX: 600, rotateY: 1200 } }
+            },
+            interactivity: {
+                detect_on: "canvas",
+                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
+                modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } }
+            },
+            retina_detect: true
+        });
+    </script>
 </body>
 </html>
