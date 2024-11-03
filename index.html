@@ -4,30 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wasserpuncher - Unique Coding Experiences</title>
-
-    <!-- SEO Meta Tags -->
-    <meta name="description" content="Dive into the universe of Wasserpuncher: innovative projects, unique coding adventures, and tech breakthroughs.">
-    <meta name="keywords" content="Wasserpuncher, GitHub, Twitch, coding, programming, technology, projects">
-    <meta name="robots" content="index, follow">
-
-    <!-- Open Graph Meta Tags for Social Media -->
-    <meta property="og:title" content="Wasserpuncher - Unique Coding Experiences">
-    <meta property="og:description" content="Join Wasserpuncher's world of creativity and code with unique experiences and insights into cutting-edge technology.">
-    <meta property="og:image" content="images/og-image.jpg">
-    <meta property="og:url" content="https://wasserpuncher.github.io">
-    <meta property="og:type" content="website">
-
-    <!-- CSS Styling and Dark Mode Setup -->
+    <meta name="description" content="Explore the world of Wasserpuncher: Innovative projects, coding adventures, and technological breakthroughs.">
+    <meta name="keywords" content="Wasserpuncher, GitHub, Twitch, Coding, Programming, Technology">
+    <meta name="author" content="Kai Pfister">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
         :root {
             --bg-light: #f0f0f0;
             --text-light: #333;
             --bg-dark: #222;
             --text-dark: #ddd;
-            --accent-color: #00ffd1;
-            --secondary-color: #ff00c1;
+            --primary-color: #007bff;
         }
-
         body {
             font-family: 'Courier New', monospace;
             line-height: 1.6;
@@ -35,27 +23,29 @@
             padding: 0;
             transition: background-color 0.3s, color 0.3s;
         }
-
-        /* Light and Dark Mode */
         body.light-mode {
             background-color: var(--bg-light);
             color: var(--text-light);
         }
-
         body.dark-mode {
             background-color: var(--bg-dark);
             color: var(--text-dark);
         }
-
-        /* Container Styling */
         .container {
             max-width: 800px;
             margin: 0 auto;
             padding: 20px;
+        }
+        h1, h2 {
             text-align: center;
         }
-
-        /* Glitch Animation for Logo */
+        #toggle-mode {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 10px;
+            cursor: pointer;
+        }
         .glitch-container {
             position: relative;
             font-size: 3em;
@@ -68,59 +58,10 @@
             position: relative;
             display: inline-block;
         }
-        .glitch-text::before,
-        .glitch-text::after {
-            content: attr(data-text);
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        .glitch-text::before {
-            left: 2px;
-            text-shadow: -2px 0 var(--secondary-color);
-            animation: glitch-anim 2.5s infinite linear alternate-reverse;
-        }
-        .glitch-text::after {
-            left: -2px;
-            text-shadow: -2px 0 var(--accent-color);
-            animation: glitch-anim2 2.5s infinite linear alternate-reverse;
-        }
-
-        /* Glitch Animations */
-        @keyframes glitch-anim {
-            0% { clip: rect(25px, 9999px, 50px, 0); }
-            50% { clip: rect(45px, 9999px, 30px, 0); }
-            100% { clip: rect(65px, 9999px, 15px, 0); }
-        }
-        @keyframes glitch-anim2 {
-            0% { clip: rect(65px, 9999px, 100px, 0); }
-            50% { clip: rect(85px, 9999px, 35px, 0); }
-            100% { clip: rect(95px, 9999px, 25px, 0); }
-        }
-
-        /* Toggle Button for Dark Mode */
-        #toggle-mode {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px;
-            cursor: pointer;
-            border: none;
-            border-radius: 5px;
-            background-color: var(--accent-color);
-            color: #fff;
-            transition: background-color 0.3s;
-        }
-        #toggle-mode:hover {
-            background-color: var(--secondary-color);
-        }
-
-        /* Interactive Links */
+        /* Glitch animation styles... */
         .links {
             display: flex;
-            justify-content: center;
+            justify-content: space-around;
             flex-wrap: wrap;
             margin-top: 30px;
         }
@@ -128,7 +69,6 @@
             color: inherit;
             text-decoration: none;
             padding: 10px 20px;
-            margin: 10px;
             border: 2px solid currentColor;
             border-radius: 5px;
             transition: all 0.3s;
@@ -137,8 +77,35 @@
             background-color: currentColor;
             color: var(--bg-dark);
         }
-
-        /* Particle Background */
+        /* Live chat styles */
+        .chat-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            background: var(--bg-light);
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+            display: none;
+        }
+        .chat-header {
+            background: var(--primary-color);
+            color: white;
+            padding: 10px;
+            text-align: center;
+            cursor: pointer;
+        }
+        .chat-messages {
+            height: 200px;
+            overflow-y: auto;
+            padding: 10px;
+        }
+        .chat-input {
+            padding: 10px;
+            width: calc(100% - 20px);
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
         #particles-js {
             position: fixed;
             width: 100%;
@@ -146,16 +113,6 @@
             top: 0;
             left: 0;
             z-index: -1;
-        }
-
-        /* Responsive Layout */
-        @media (max-width: 600px) {
-            .glitch-container {
-                font-size: 2em;
-            }
-            #toggle-mode {
-                padding: 8px;
-            }
         }
     </style>
 </head>
@@ -166,48 +123,66 @@
         <div class="glitch-container">
             <h1 class="glitch-text" data-text="Wasserpuncher">Wasserpuncher</h1>
         </div>
-        <p>Welcome to my digital universe! Here, creativity and code merge into unique experiences.</p>
+        <p>Welcome to my digital world! Here, creativity and code merge into unique experiences.</p>
         <div class="links">
             <a href="https://github.com/Wasserpuncher" target="_blank">GitHub</a>
             <a href="https://www.twitch.tv/wasserpuncher" target="_blank">Twitch</a>
             <a href="https://bio.link/wasserpuncher" target="_blank">Bio Link</a>
             <a href="https://wasserpuncher.wordpress.com" target="_blank">Blog</a>
         </div>
+        <div class="chat-container" id="chat-container">
+            <div class="chat-header" id="chat-header">Live Chat</div>
+            <div class="chat-messages" id="chat-messages"></div>
+            <input type="text" class="chat-input" id="chat-input" placeholder="Type a message...">
+        </div>
+        <form id="feedback-form" style="margin-top: 30px;">
+            <h2>Feedback</h2>
+            <textarea rows="4" style="width: 100%; border-radius: 5px; padding: 10px;" placeholder="Your feedback..."></textarea>
+            <button type="submit" style="margin-top: 10px; padding: 10px; background-color: var(--primary-color); color: white; border: none; border-radius: 5px;">Submit</button>
+        </form>
     </div>
-
-    <!-- Particles.js Background -->
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
         const toggleButton = document.getElementById('toggle-mode');
         const body = document.body;
+        const chatHeader = document.getElementById('chat-header');
+        const chatContainer = document.getElementById('chat-container');
+        const chatInput = document.getElementById('chat-input');
+        const chatMessages = document.getElementById('chat-messages');
 
-        // Dark Mode Toggle with Local Storage
         toggleButton.addEventListener('click', () => {
             body.classList.toggle('light-mode');
             body.classList.toggle('dark-mode');
-            localStorage.setItem('mode', body.classList.contains('dark-mode') ? 'dark' : 'light');
         });
 
-        // Load Last Saved Mode
-        if (localStorage.getItem('mode') === 'dark') {
-            body.classList.remove('light-mode');
-            body.classList.add('dark-mode');
-        }
+        chatHeader.addEventListener('click', () => {
+            chatContainer.style.display = chatContainer.style.display === 'none' || chatContainer.style.display === '' ? 'block' : 'none';
+        });
 
-        // Particle Effect
+        chatInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter' && chatInput.value) {
+                const message = document.createElement('div');
+                message.textContent = chatInput.value;
+                chatMessages.appendChild(message);
+                chatInput.value = '';
+                chatMessages.scrollTop = chatMessages.scrollHeight;
+            }
+        });
+
         particlesJS("particles-js", {
             particles: {
                 number: { value: 80, density: { enable: true, value_area: 800 } },
                 color: { value: "#ffffff" },
-                shape: { type: "circle", stroke: { width: 0 }, polygon: { nb_sides: 5 } },
-                opacity: { value: 0.5, random: false },
+                shape: { type: "circle" },
+                opacity: { value: 0.5 },
                 size: { value: 3, random: true },
                 line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
-                move: { enable: true, speed: 6 }
+                move: { enable: true, speed: 6, direction: "none", out_mode: "out" }
             },
             interactivity: {
                 detect_on: "canvas",
-                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" } }
+                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
+                modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } }
             },
             retina_detect: true
         });
