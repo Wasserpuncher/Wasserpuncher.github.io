@@ -9,27 +9,15 @@
     <meta name="author" content="Kai Pfister">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <style>
-        :root {
-            --bg-light: #f0f0f0;
-            --text-light: #333;
-            --bg-dark: #222;
-            --text-dark: #ddd;
-            --primary-color: #007bff;
-        }
+        /* Global Styles */
         body {
             font-family: 'Courier New', monospace;
             line-height: 1.6;
             margin: 0;
             padding: 0;
-            transition: background-color 0.3s, color 0.3s;
-        }
-        body.light-mode {
-            background-color: var(--bg-light);
-            color: var(--text-light);
-        }
-        body.dark-mode {
-            background-color: var(--bg-dark);
-            color: var(--text-dark);
+            background-color: #222;
+            color: #ddd;
+            overflow-x: hidden;
         }
         .container {
             max-width: 800px;
@@ -39,26 +27,6 @@
         h1, h2 {
             text-align: center;
         }
-        #toggle-mode {
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            padding: 10px;
-            cursor: pointer;
-        }
-        .glitch-container {
-            position: relative;
-            font-size: 3em;
-            font-weight: bold;
-            text-align: center;
-            text-transform: uppercase;
-            overflow: hidden;
-        }
-        .glitch-text {
-            position: relative;
-            display: inline-block;
-        }
-        /* Glitch animation styles... */
         .links {
             display: flex;
             justify-content: space-around;
@@ -75,51 +43,22 @@
         }
         .links a:hover {
             background-color: currentColor;
-            color: var(--bg-dark);
+            color: #222;
         }
-        /* Live chat styles */
-        .chat-container {
+        /* Canvas styles */
+        #canvas {
             position: fixed;
-            bottom: 20px;
-            right: 20px;
-            width: 300px;
-            background: var(--bg-light);
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-            display: none;
-        }
-        .chat-header {
-            background: var(--primary-color);
-            color: white;
-            padding: 10px;
-            text-align: center;
-            cursor: pointer;
-        }
-        .chat-messages {
-            height: 200px;
-            overflow-y: auto;
-            padding: 10px;
-        }
-        .chat-input {
-            padding: 10px;
-            width: calc(100% - 20px);
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-        #particles-js {
-            position: fixed;
-            width: 100%;
-            height: 100%;
             top: 0;
             left: 0;
+            width: 100%;
+            height: 100%;
             z-index: -1;
         }
     </style>
 </head>
-<body class="light-mode">
-    <div id="particles-js"></div>
+<body>
+    <canvas id="canvas"></canvas>
     <div class="container">
-        <button id="toggle-mode">Toggle Mode</button>
         <div class="glitch-container">
             <h1 class="glitch-text" data-text="Wasserpuncher">Wasserpuncher</h1>
         </div>
@@ -130,61 +69,67 @@
             <a href="https://bio.link/wasserpuncher" target="_blank">Bio Link</a>
             <a href="https://wasserpuncher.wordpress.com" target="_blank">Blog</a>
         </div>
-        <div class="chat-container" id="chat-container">
-            <div class="chat-header" id="chat-header">Live Chat</div>
-            <div class="chat-messages" id="chat-messages"></div>
-            <input type="text" class="chat-input" id="chat-input" placeholder="Type a message...">
-        </div>
-        <form id="feedback-form" style="margin-top: 30px;">
-            <h2>Feedback</h2>
-            <textarea rows="4" style="width: 100%; border-radius: 5px; padding: 10px;" placeholder="Your feedback..."></textarea>
-            <button type="submit" style="margin-top: 10px; padding: 10px; background-color: var(--primary-color); color: white; border: none; border-radius: 5px;">Submit</button>
-        </form>
     </div>
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script>
-        const toggleButton = document.getElementById('toggle-mode');
-        const body = document.body;
-        const chatHeader = document.getElementById('chat-header');
-        const chatContainer = document.getElementById('chat-container');
-        const chatInput = document.getElementById('chat-input');
-        const chatMessages = document.getElementById('chat-messages');
+        // Particle Animation on Canvas
+        const canvas = document.getElementById('canvas');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
 
-        toggleButton.addEventListener('click', () => {
-            body.classList.toggle('light-mode');
-            body.classList.toggle('dark-mode');
-        });
+        let particles = [];
 
-        chatHeader.addEventListener('click', () => {
-            chatContainer.style.display = chatContainer.style.display === 'none' || chatContainer.style.display === '' ? 'block' : 'none';
-        });
+        function Particle(x, y) {
+            this.x = x;
+            this.y = y;
+            this.size = Math.random() * 5 + 1;
+            this.speedX = Math.random() * 3 - 1.5;
+            this.speedY = Math.random() * 3 - 1.5;
+            this.color = 'hsl(' + Math.random() * 360 + ', 50%, 50%)';
+        }
 
-        chatInput.addEventListener('keypress', (e) => {
-            if (e.key === 'Enter' && chatInput.value) {
-                const message = document.createElement('div');
-                message.textContent = chatInput.value;
-                chatMessages.appendChild(message);
-                chatInput.value = '';
-                chatMessages.scrollTop = chatMessages.scrollHeight;
+        Particle.prototype.update = function() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+
+            // Bounce off edges
+            if (this.size < 0.1) this.size = 0;
+            if (this.x <= 0 || this.x >= canvas.width) this.speedX *= -1;
+            if (this.y <= 0 || this.y >= canvas.height) this.speedY *= -1;
+        }
+
+        Particle.prototype.draw = function() {
+            ctx.fillStyle = this.color;
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fill();
+        }
+
+        function init() {
+            particles = [];
+            for (let i = 0; i < 100; i++) {
+                particles.push(new Particle(Math.random() * canvas.width, Math.random() * canvas.height));
             }
-        });
+        }
 
-        particlesJS("particles-js", {
-            particles: {
-                number: { value: 80, density: { enable: true, value_area: 800 } },
-                color: { value: "#ffffff" },
-                shape: { type: "circle" },
-                opacity: { value: 0.5 },
-                size: { value: 3, random: true },
-                line_linked: { enable: true, distance: 150, color: "#ffffff", opacity: 0.4, width: 1 },
-                move: { enable: true, speed: 6, direction: "none", out_mode: "out" }
-            },
-            interactivity: {
-                detect_on: "canvas",
-                events: { onhover: { enable: true, mode: "repulse" }, onclick: { enable: true, mode: "push" }, resize: true },
-                modes: { grab: { distance: 400, line_linked: { opacity: 1 } }, bubble: { distance: 400, size: 40, duration: 2, opacity: 8, speed: 3 }, repulse: { distance: 200, duration: 0.4 }, push: { particles_nb: 4 }, remove: { particles_nb: 2 } }
-            },
-            retina_detect: true
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            particles.forEach(particle => {
+                particle.update();
+                particle.draw();
+            });
+            requestAnimationFrame(animate);
+        }
+
+        init();
+        animate();
+
+        // Prevent F12 or right-click
+        document.addEventListener('contextmenu', event => event.preventDefault());
+        document.addEventListener('keydown', event => {
+            if (event.key === 'F12' || (event.ctrlKey && event.shiftKey && event.key === 'I')) {
+                event.preventDefault();
+            }
         });
     </script>
 </body>
